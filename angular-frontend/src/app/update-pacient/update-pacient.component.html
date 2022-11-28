@@ -1,0 +1,29 @@
+<div class="col-md-8 offset-md-3">
+ <h4>Atualize pacient</h4>
+ <form (ngSubmit)="onSubmit()" class="pacient-form">
+
+  <div class="form-group">
+   <label for="">Name</label>
+   <input type="text" class="form-control" id="name" [(ngModel)]="pacient.name" name="name">
+  </div>
+
+  <div class="form-group">
+   <label for="">Email</label>
+   <input type="text" class="form-control" id="email" [(ngModel)]="pacient.email" name="email">
+  </div>
+
+  <div class="form-group">
+   <label for="">Cpf</label>
+   <input type="text" class="form-control" id="cpf" [(ngModel)]="pacient.cpf" name="cpf">
+  </div>
+
+  <div class="form-group">
+   <label for="">Cellphone</label>
+   <input type="text" class="form-control" id="cellphone" [(ngModel)]="pacient.cellphone" name="cellphone">
+  </div>
+
+  <button class="btn btn-success" type="submit">Enviar</button>
+
+
+ </form>
+</div>

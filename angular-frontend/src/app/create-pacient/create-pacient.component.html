@@ -1,0 +1,32 @@
+<div class="col-md-8 offset-md-2">
+ <h4>Add new pacient</h4>
+ <form (ngSubmit)="onSubmit()" class="pacient-form">
+
+  <div class="form-group">
+   <label for="">Name</label>
+   <input type="text" class="form-control" id="name" [(ngModel)]="pacient.name" name="name">
+  </div>
+
+  <div class="form-group">
+   <label for="">Email</label>
+   <input type="email" class="form-control" id="email" [(ngModel)]="pacient.email" name="email"
+    placeholder="exemple@email.com">
+  </div>
+
+  <div class="form-group">
+   <label for="">Cpf</label>
+   <input type="text" class="form-control" id="cpf" [(ngModel)]="pacient.cpf" name="cpf"
+    placeholder="_ _ _ . _ _ _ . _ _ _ - _ _">
+  </div>
+
+  <div class="form-group">
+   <label for="">cellphone</label>
+   <input type="text" class="form-control" id="cellphone" [(ngModel)]="pacient.cellphone" name="cellphone"
+    placeholder="+XX (XX) 9XXXX-XXXX">
+  </div>
+
+  <button class="btn btn-success" type="submit">Submit</button>
+
+
+ </form>
+</div>

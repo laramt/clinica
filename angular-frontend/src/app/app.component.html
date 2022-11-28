@@ -1,0 +1,24 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+ <div>
+  <a class="navbar-brand" href="#">Clinica</a>
+ </div>
+
+ <div class="navbar-nav">
+  <a routerLink="pacients" routerLinkActive="active" class="nav-link active">pacients list</a>
+  <a routerLink="create-pacient" routerLinkActive="active" class="nav-link active">add pacients</a>
+ </div>
+</nav>
+
+<body>
+ <!--<h1 class="text-center"> {{title}} </h1>-->
+ <div class="container">
+  <router-outlet></router-outlet>
+ </div>
+</body>
+
+
+<footer class="footer">
+ <div class="container">
+  <span class="footer-text">Angular Spring Boot 2022</span>
+ </div>
+</footer>
