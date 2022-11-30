@@ -5,5 +5,4 @@ export class Pacient {
  cpf!: string; 
  cellphone!: string; 
  email!: string;
-
 }
