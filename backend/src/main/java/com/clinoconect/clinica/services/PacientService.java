@@ -28,24 +28,24 @@ public class PacientService {
 		// verifica email
 		String email = pacient.getEmail();
 		if (pacientRepository.existsByEmail(email)) {
-			throw new RuntimeException("Email já existe.");
+			throw new RuntimeException("This email is already in use.");
 		}
 
 		Pattern patternEmail = Pattern.compile("^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$");
 		Matcher matcherEmail = patternEmail.matcher(email);
-		if (!matcherEmail.matches()) {
-			throw new RuntimeException("Formato invalido de email.");
+		if (matcherEmail.matches()) {
+			throw new RuntimeException("Invalid email format");
 		}
 
 		// verifica cpf
 		String cpf = pacient.getCpf();
 		if (pacientRepository.existsByCpf(cpf)) {
-			throw new RuntimeException("Cpf já existe.");
+			throw new RuntimeException("This Cpf is already in use.");
 		}
 		Pattern patternCpf = Pattern.compile("^\\d{3}\\x2E\\d{3}\\x2E\\d{3}\\x2D\\d{2}$");
 		Matcher matcherCpf = patternCpf.matcher(cpf);
 		if (!matcherCpf.matches()) {
-			throw new RuntimeException("Formato invalido de cpf.");
+			throw new RuntimeException("Invalid cpf format.");
 		}
 
 		return pacientRepository.save(pacient);
@@ -63,8 +63,8 @@ public class PacientService {
 	}
 
 	@Transactional
-	public void delete(Pacient pacient) {
-		pacientRepository.delete(pacient);
+	public void delete(Long id) {
+		pacientRepository.deleteById(id);
 	}
 
 	public List<Pacient> findsAll() {

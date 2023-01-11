@@ -41,7 +41,7 @@ public class PacientController {
 	@GetMapping("/pacients/{id}")
 	public ResponseEntity<Object> findById(@PathVariable Long id) {
 		Pacient pacient = pacientService.findById(id)
-				.orElseThrow(() -> new ResourceNotFoundException("Pacient não existe com id: " + id));
+				.orElseThrow(() -> new ResourceNotFoundException("Pacient with id does not exist: " + id));
 		
 		return ResponseEntity.status(HttpStatus.OK).body(pacient);
 
@@ -57,7 +57,7 @@ public class PacientController {
 	@PutMapping("/pacients/{id}")
 	public ResponseEntity<Object> updates(@PathVariable Long id, @RequestBody Pacient pacient) {
 		pacient = pacientService.findById(id)
-				.orElseThrow(() -> new ResourceNotFoundException("Pacient não existe com id: " + id));
+				.orElseThrow(() -> new ResourceNotFoundException("Pacient with id does not exist: " + id));
 		
 		
 		pacient = pacientService.update(id, pacient);
@@ -66,14 +66,12 @@ public class PacientController {
 	
 	// Deletes pacient
 	@DeleteMapping
-	public ResponseEntity<Map<String, Boolean>> deletePacient(@PathVariable Long id){
+	public ResponseEntity<Object> deletePacient(@PathVariable Long id){
 		Pacient pacient = pacientService.findById(id)
-				.orElseThrow(() -> new ResourceNotFoundException("Paciente not exist with id :" + id));
+				.orElseThrow(() -> new ResourceNotFoundException("Pacient with id does not exist: " + id));
 		
-		pacientService.delete(pacient);
-		Map<String, Boolean> response = new HashMap<>();
-		response.put("deleted", Boolean.TRUE);
-		return ResponseEntity.ok(response);
+		pacientService.delete(id);
+		return ResponseEntity.ok(null);
 	
 	
 	/*@GetMapping("/pacients/name")
